@@ -2,9 +2,10 @@
 
 function averageNumber(array) {
   let sum = 0
-  let average = sum / array.length;
   for (let num of array) {
     sum += num;
   }
+  let average = sum / array.length;
   return average;
 }
+
