@@ -34,3 +34,13 @@ function isValidPassword(password, username) {
   if (tooShort || hasSpace || tooSimilar) return false;
   return true;
 }
+
+function isValidPassword(password, username) {
+  const tooShort = password.length < 8;
+  const hasSpace = password.indexOf(' ') !== -1;
+  const tooSimilar = password.indexOf(username) !== -1;
+  return !tooShort && !tooSimilar && !hasSpace; // this line says: return TRUE if is NOT too short and NOT too similar and HAS NO SPACES
+}
+
+// remember ! and & are BOOLEAN operator, they always return TRUE or FALSE
+// if we have TRUE, FALSE, TRUE vai retornar FALSE por ex
