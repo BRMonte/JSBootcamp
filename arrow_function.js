@@ -12,3 +12,13 @@ const square = () => { //no parameter
   console.log('HI');
 }
 
+// ARROW FUNCTION IMPLICIT RETURN
+
+const square = (x) => {
+  x * x;
+}
+
+// ARROW FUNCTION 1 LINE
+
+const square = (x) => x * x;
+const double = nums.map(n => n * 2);
