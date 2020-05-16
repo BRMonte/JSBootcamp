@@ -29,5 +29,10 @@ function sum(x, y) {
 }
 
 function divide(a, b) {
-  console.log(a / b)
+ return x + y // RETURN STOPS the function running
+ console.log('Congratsssss!!!') // this line WONT RUN
+}
+
+function isPurple(color) {
+  return color.toLowerCase() === "purple";
 }
