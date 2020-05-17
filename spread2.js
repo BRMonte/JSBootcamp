@@ -13,3 +13,15 @@ const inverts = [...cnidaria, ...gastropods, ...cephalopods]
 
 const cephCopy = [...cephalopods];
 //["dumbo octopus", "humboldt squid", "flamboyant cuttlefish"]
+
+
+////////////////////////////
+
+"abdefg".split('';
+// ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
+[...'abcdefg'];
+// ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
+[...'abc', ...'def', 'HELLO!'];
+// ['a', 'b', 'c', 'd', 'e', 'f', 'HELLO!']
