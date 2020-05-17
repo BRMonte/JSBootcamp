@@ -7,6 +7,7 @@ const badSort = prices.slice().sort();
 
 // Ascending Sort:
 const ascSort = prices.slice().sort((a, b) => a - b);
+// slice is here so it will change prices array in order to keep the sorted order
 
 // Descending Sort:
 const descSort = prices.slice().sort((a, b) => b - a);
