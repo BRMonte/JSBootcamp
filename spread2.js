@@ -20,7 +20,7 @@ const cephCopy = [...cephalopods];
 "abdefg".split('';
 // ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
-[...'abcdefg'];
+[...'abcdefg']; // A WAY TO TURN STRINGS INTO AN ARRAY
 // ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
 [...'abc', ...'def', 'HELLO!'];

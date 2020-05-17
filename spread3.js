@@ -43,3 +43,8 @@ const catDogClone = {
 const random = [...'hello', {
   ...catDog
 }]
+
+/////////////////////////////
+
+{...[4,5,6,7]};
+// {0: 4, 1: 5, 2: 6, 3: 7} here the index will become keys
