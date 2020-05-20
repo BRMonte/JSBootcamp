@@ -16,6 +16,6 @@ window.addEventListener('keyup', function (e) {
 });
 
 
-// const extractPosition = (pos) => {
-
-// };
+const extractPosition = (pos) => { // function to know the position of the avatar. By the CSS file we know it is initially TOP 100px. This function will always take the position and turn it into a number
+  parseInt(pos.slice(0, -2)); // POS is a STRING. this line will remove the PX from the avatar position information and turn into a number
+};
