@@ -1,4 +1,4 @@
-function isTouching(a, b) {
+function isTouching(a, b) { // this function was taken from the STAKOVERFLOW; it takes 2 arguments A and B, in our case: AVATAR, COIN. And returns TRUE if the items are touching
   const aRect = a.getBoundingClientRect();
   const bRect = b.getBoundingClientRect();
 
@@ -11,6 +11,7 @@ function isTouching(a, b) {
 }
 
 const avatar = document.querySelector('#player'); // could use getElementbyId aswell
+const coin = document.querySelector('#coin');
 
 window.addEventListener('keyup', function(e) {
   // console.log(e.key); // this line was add for debugging. It checks if the events are being listened. Open the console and press they arrow keys and see if it is computed
@@ -32,10 +33,19 @@ window.addEventListener('keyup', function(e) {
     avatar.style.left = `${currLeft - 50}px`;
     avatar.style.transform = 'scale(-1,1)'; // this lines reverse the AVATAR image, so it faces the same way it is going
   }
+  if (isTouching(avatar, coin)) moveCoin(); // after the avatar movements, this line checks if avatar isTouching() coin. if TRUE, it moveCoin()
 });
 
 
 const extractPosition = (pos) => { // function to know the position of the avatar. By the CSS file we know it is initially TOP 100px. This function will always take the position and turn it into a number
   if (!pos) return 100; // this line says: if POS is an FALSY (empty string) return 0 as its value
   return parseInt(pos.slice(0, -2)); // POS is a STRING. this line will remove the PX from the avatar position information and turn into a number
+};
+
+
+const moveCoin = () => { // this functions will randomly move the coin
+  const x = Math.floor(Math.random() * window.innerWidth);
+  const y = Math.floor(Math.random() * window.innerHeight);
+  coin.style.top = `${y}px`;
+  coin.style.left = `${x}px`;
 };
