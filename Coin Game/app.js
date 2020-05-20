@@ -18,9 +18,19 @@ window.addEventListener('keyup', function(e) {
     const currTop = extractPosition(avatar.style.top); //avatar.style.top inicialmente é uma empty string. So In order to take what we need, we must set a oondition for it
     avatar.style.top = `${currTop + 50}px`;
   }
-  else if (e.key === 'ArrowUp' || e.key === 'Up') {
+  else if (e.key === 'ArrowUp' || e.key === 'Up') { // this  e.key === 'Up' is to set this function for INTERNET EXPLORER browser
     const currTop = extractPosition(avatar.style.top); //avatar.style.top inicialmente é uma empty string. So In order to take what we need, we must set a oondition for it
     avatar.style.top = `${currTop - 50}px`;
+  }
+  else if (e.key === 'ArrowRight' || e.key === 'Right') {
+    const currLeft = extractPosition(avatar.style.left);
+    avatar.style.left = `${currLeft + 50}px`;
+    avatar.style.transform = 'scale(1,1)'; // this lines reverse the AVATAR image, so it faces the same way it is going
+  }
+  else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+    const currLeft = extractPosition(avatar.style.top);
+    avatar.style.left = `${currLeft - 50}px`;
+    avatar.style.transform = 'scale(-1,1)'; // this lines reverse the AVATAR image, so it faces the same way it is going
   }
 });
 
