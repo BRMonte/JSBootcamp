@@ -13,6 +13,8 @@ class Timer {
 
     if (callbacks) {
       this.onStart = callbacks.onStart;
+      this.onTick = callbacks.onTick;
+      this.onComplete = callbacks.onComplete;
     }
 
     this.startButton.addEventListener('click', this.start);
@@ -34,10 +36,16 @@ class Timer {
   };
 
   tick = () => {
-    if (this.timeRemaining <= 0) { // imede que o timer vá além do 0
+    if (this.timeRemaining <= 0) { // impede que o timer vá além do 0
       this.pause();
+      if (this.onComplete) {
+        this.onComplete();
+      }
     } else {
-      this.timeRemaining = this.timeRemaining - 1;
+      this.timeRemaining = this.timeRemaining - 1; // os timeRemaining nao tem () pq é um GETTER
+      if (this.onTick) {
+        this.onTick();
+      }
     }
   };
 
@@ -60,11 +68,11 @@ const timer = new Timer(durationInput, startButton, pauseButton, {  // this is a
   },
 
   onTick() {
-
+    console.log('Timer just ticked down');
   },
 
   onComplete() {
-
+    console.log('Timer is completed');
   }
 
 });
