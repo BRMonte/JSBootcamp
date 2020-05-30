@@ -21,7 +21,7 @@ class Timer {
     }
 
     this.tick(); // this is being manually called before the interval starts runmning cause if not the Timer would wait 1000mls until starts
-    this.interval = setInterval(this.tick, 1000); // serINterval is a built in method that gives us a timer. The time is passed in milliseconms. 1000mls = 1s. this.interval because we need to use interval in the PAUSE function
+    this.interval = setInterval(this.tick, 50); // serINterval is a built in method that gives us a timer. The time is passed in milliseconms. 1000mls = 1s. this.interval because we need to use interval in the PAUSE function
   };
 
   pause = () => {
@@ -35,7 +35,7 @@ class Timer {
         this.onComplete();
       }
     } else {
-      this.timeRemaining = this.timeRemaining - 1; // os timeRemaining nao tem () pq é um GETTER
+      this.timeRemaining = this.timeRemaining - 0.5; // os timeRemaining nao tem () pq é um GETTER
       if (this.onTick) {
         this.onTick();
       }
@@ -47,6 +47,6 @@ class Timer {
   };
 
   set timeRemaining(time) {
-    this.durationInput.value = time;
+    this.durationInput.value = time.toFixed(2); //este .toFixed(2) é uma forma de contornar a imprecisão matematica do JS para que os milisegundos etc sejam nº redondos
   };
 }
