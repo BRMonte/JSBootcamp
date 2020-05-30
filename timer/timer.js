@@ -17,7 +17,7 @@ class Timer {
   start = () => { //this is written as an arrow function so THIS can return exactly what we need
 
     if (this.onStart) {
-      this.onStart();
+      this.onStart(this.timeRemaining); // by adding this.timeRemaining, when the timer starts it will know for how longe
     }
 
     this.tick(); // this is being manually called before the interval starts runmning cause if not the Timer would wait 1000mls until starts
@@ -37,7 +37,7 @@ class Timer {
     } else {
       this.timeRemaining = this.timeRemaining - 0.5; // os timeRemaining nao tem () pq é um GETTER
       if (this.onTick) {
-        this.onTick();
+        this.onTick(this.timeRemaining); //this.timeRemaining foi post aqui para poder ser usado em onTick no index.js
       }
     }
   };

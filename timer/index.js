@@ -14,16 +14,18 @@ const perimeter = circle.getAttribute('r') * 2 * Math.PI; //essa linha GET o atr
 circle.setAttribute('stroke-dasharray', perimeter); //essa linha SET o atributo stroke-dasharray para ser igual ao perimetro
 
 
-let currentOffset = 0;
+let duration;
 const timer = new Timer(durationInput, startButton, pauseButton, {  // this is an instance of the class Timer
-  onStart() {
+  onStart(totalDuration) {
     console.log('timer started');
+    duration = totalDuration
   },
 
-  onTick() {
+  onTick(timeRemaining) { //timeRemaining é uma instance variable em Timer e foi passada aqui para ajustar o tick do relógio ao andor do circulo
     console.log('Timer just ticked down');
-    circle.setAttribute('stroke-dashoffset', currentOffset);
-    currentOffset = currentOffset - 1;
+    circle.setAttribute('stroke-dashoffset',
+      perimeter * timeRemaining / duration - perimeter
+    );
   },
 
   onComplete() {
